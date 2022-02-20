@@ -1,4 +1,4 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 .topbar {
   width: 100%;
@@ -33,6 +33,10 @@
         align-items: center;
         margin-left: 30px;
 
+        @include mobile {
+          display: none;
+        }
+
         .icon {
           font-size: 18px;
           margin-right: 5px;
@@ -40,14 +44,14 @@
 
         span {
           font-size: 15px;
-          font-family: 500;
+          font-weight: 500;
         }
       }
     }
-    .right {
 
+    .right {
       .hamburger {
-        width: 31px;
+        width: 32px;
         height: 25px;
         display: flex;
         flex-direction: column;
@@ -60,8 +64,6 @@
           background-color: $mainColor;
           transform-origin: left;
           transition: all 1s ease;
-          scrollbar-width: none;
-
         }
       }
     }
@@ -70,8 +72,10 @@
   &.active {
     background-color: $mainColor;
     color: white;
+    
 
     .hamburger {
+      overflow: hidden;
       span {
         &:first-child {
           background-color: white;
@@ -83,10 +87,8 @@
         &:last-child {
           background-color: white;
           transform: rotate(-45deg);
-
         }
-        
       }
     }
   }
-}
+};

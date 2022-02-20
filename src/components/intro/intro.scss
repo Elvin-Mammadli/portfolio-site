@@ -1,9 +1,16 @@
+@import "../../global.scss";
+
 .intro {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   display: flex;
 
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .left {
-    flex-grow: 0.5;
+    flex: 0.5;
     overflow: hidden;
 
     .imgContainer {
@@ -14,15 +21,23 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      float: right;
+
+      @include mobile {
+        align-items: flex-start;
+      }
 
       img {
-        height: 80%;
+        height: 90%;
+
+        @include mobile {
+          height: 50%;
+        }
       }
     }
   }
   .right {
-    flex-grow: 0.5;
-    overflow: hidden;
+    flex: 0.5;
     position: relative;
 
     .wrapper {
@@ -32,77 +47,64 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
 
-    h1 {
-      font-size: 60px;
-      margin: 10px 0;
-      color: #000;
-    }
-    h2 {
-      font-size: 35px;
-      color: #000;
-
-    }
-    h3 {
-      font-size: 30px;
-      color: #000;
-
-
-      span {
-        font-size: inherit;
-        color: crimson;
+      @include mobile {
+        padding-left: 0;
+        align-items: center;
       }
 
-      .ityped-cursor {
-        font-size: 2.2rem;
-        opacity: 1;
-        -webkit-animation: blink 0.3s infinite;
-        -moz-animation: blink 0.3s infinite;
-        animation: blink 0.3s infinite;
-        animation-direction: alternate;
-      }
+      h1 {
+        font-size: 60px;
+        margin: 10px 0;
 
-      @keyframes blink {
-        100% {
-          opacity: 0;
+        @include mobile {
+          font-size: 40px;
         }
       }
+      h2 {
+        font-size: 35px;
+      }
+      h3 {
+        font-size: 30px;
 
-      @-webkit-keyframes blink {
-        100% {
-          opacity: 0;
+        @include mobile {
+          font-size: 20px;
+        }
+
+        span {
+          font-size: inherit;
+          color: crimson;
+        }
+
+        .ityped-cursor {
+          animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
         }
       }
+    }
+    a {
+      position: absolute;
+      bottom: 10px;
+      left: 40%;
 
-      @-moz-keyframes blink {
+      img {
+        width: 30px;
+        animation: arrowBlink 2s infinite;
+      }
+
+      @keyframes arrowBlink {
         100% {
           opacity: 0;
         }
       }
     }
   }
-
-  a {
-    position: absolute;
-    bottom: 10%;
-    left: 35%;
-
-    img {
-      width: 50px;
-      animation: arrowBlink 1.5s infinite;
-    }
-
-    @keyframes arrowBlink {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-  }
-}
+};

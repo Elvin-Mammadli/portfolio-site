@@ -1,4 +1,4 @@
-@import '../../global.scss';
+@import "../../global.scss";
 
 .portfolioList {
   font-size: 14px;
@@ -6,9 +6,13 @@
   padding: 7px;
   border-radius: 10px;
   cursor: pointer;
-}
 
-.active {
-  background-color: $mainColor;
-  color: white;
+  @include mobile{
+    margin-right: 20px;
+  }
+
+  &.active {
+    background-color: $mainColor;
+    color: white;
+  }
 }

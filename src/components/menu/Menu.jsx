@@ -1,20 +1,25 @@
-import './menu.scss';
-import Menus from './menu-lists';
+import "./menu.scss";
 
-const Menu = ({ menuOpen, setMenuOpen }) => {
+export default function Menu({ menuOpen, setMenuOpen }) {
   return (
-    <div className={"menu " + (menuOpen && "active")}>
+    <div className={"menu "+(menuOpen && "active")}>
       <ul>
-        <li onClick={() => setMenuOpen(false)}>
+        <li onClick={()=>setMenuOpen(false)}>
           <a href="#intro">Home</a>
         </li>
-        <Menus name='Portfolio' onClick={{ menuOpen, setMenuOpen }} />
-        <Menus name='Works' onClick={{ menuOpen, setMenuOpen }} />
-        <Menus name='Testimonials' onClick={{ menuOpen, setMenuOpen }} />
-        <Menus name='Contact' onClick={{ menuOpen, setMenuOpen }} />
+        <li onClick={()=>setMenuOpen(false)}>
+          <a href="#portfolio">Portfolio</a>
+        </li>
+        <li onClick={()=>setMenuOpen(false)}>
+          <a href="#works">Works</a>
+        </li>
+        <li onClick={()=>setMenuOpen(false)}>
+          <a href="#testimonials">Testimonials</a>
+        </li>
+        <li onClick={()=>setMenuOpen(false)}>
+          <a href="#contact">Contact</a>
+        </li>
       </ul>
     </div>
   );
-}
-
-export default Menu;
+};
